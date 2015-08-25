@@ -13,8 +13,7 @@ class NerdController extends \BaseController {
 		$nerds = Nerd::all();
 
 		// load ther views and pass the nerds 
-		return View::make('nerds.index')
-			->with('nerds', $nerds);
+		return View::make('nerds.index')->with('nerds', $nerds);
 	}
 
 

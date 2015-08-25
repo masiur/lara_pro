@@ -34,7 +34,7 @@
 		</tr>
 	</thead>
 	<tbody>
-	@foreach($nerd as $key => $value)
+	@foreach($nerds as $key => $value)
 		<tr>
 			<td>{{ $value->id }}</td>
 			<td>{{ $value->name }}</td>
