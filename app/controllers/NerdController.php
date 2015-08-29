@@ -24,7 +24,8 @@ class NerdController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		// load the create form ( app/views/nerds/create.blade.php)
+		return View::make('nerds.create');
 	}
 
 
@@ -35,7 +36,30 @@ class NerdController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+		// vakidation 
+		$rules = array(
+			'name' => 'required',
+			'email' => 'required|email',
+			'nerd_level' => 'required|numeric'
+			);
+		$validator = Validator::make(Input::all(), $rules);
+		// processs the login 
+		if ($validator->fails()) {
+			return Redirect::to('nerds/create')
+				->withErrors($validator)
+				->withInput(Input::except('password'));
+		} else {
+			// store 
+			$nerd = new Nerd;
+			$nerd->name    = Input::get('name');
+			$nerd->email 	= Input::get('email');
+			$nerd->nerd_level 	= Input::get('nerd_level');
+			$nerd->save();
+
+			// redirect
+			Session::flash('message', 'Successfully created nerd!');
+			return Redirect::to('nerds');
+		}
 	}
 
 
@@ -47,7 +71,12 @@ class NerdController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		//
+		// get the nerd 
+		$nerd = Nerd::find($id);
+		// show the view and pass the nerd to it 
+		return View::make('nerds.show')
+			->with('nerd', $nerd);
+
 	}
 
 
