@@ -1,4 +1,5 @@
-## Laravel PHP Framework Basic CRUD 
+## Laravel PHP Framework Basic CRUD with laravel 4.2 
+Nerd Controller as Controller 
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
 [![Total Downloads](https://poser.pugx.org/laravel/framework/downloads.svg)](https://packagist.org/packages/laravel/framework)
