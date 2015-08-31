@@ -42,6 +42,13 @@
 			<td>{{ $value->nerd_level }}</td>
 			<td>
 
+				{{ Form::open(array('url' => 'nerds/' . $value->id, 'class' => 'pull-right')) }}
+					{{ Form::hidden('_method', 'DELETE') }}
+					{{ Form::submit('Delete this Nerd', array('class' => 'btn btn-warning') ) }}
+				{{ Form::close() }}
+
+
+
 				<a class="btn btn-small btn-success" href="{{ URL::to('nerds/' . $value->id) }}">Show this Nerd</a>
 				<a class="btn btn-small btn-info" href="{{ URL::to('nerds/' . $value->id . '/edit') }}">Edit this Nerd</a>
 			</td>
